@@ -14,74 +14,180 @@ android:padding="10dp">
         android:textSize="30sp"
         android:textColor="#000000"
         android:gravity="center"
-        android:layout_marginBottom="50dp"
-        app:layout_constraintBottom_toTopOf="@id/register_name"
+        android:layout_marginTop="100dp"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/ma"
+
         android:text="회원가입"/>
 
-    <EditText
-        android:id="@+id/register_name"
+    <LinearLayout
+        android:layout_marginTop="44dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="이름을 입력해주세요"
-        app:layout_constraintBottom_toTopOf="@id/register_id"
+        app:layout_constraintTop_toBottomOf="@id/ma"
         app:layout_constraintLeft_toRightOf="parent"
         app:layout_constraintRight_toLeftOf="parent"
-        android:background="@drawable/textfield"
-        android:padding="10dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintVertical_bias="0.693" />
+        android:gravity="center"
+        android:orientation="vertical"
+        android:id="@+id/register_name_layout"
+        >
+        <TextView
+            android:layout_marginBottom="4dp"
+            android:layout_width="match_parent"
+            android:paddingLeft="48dp"
+            app:layout_constraintTop_toBottomOf="@id/ma"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="parent"
+            android:layout_height="wrap_content"
+            android:text="이름"
+            />
+        <EditText
+            android:id="@+id/register_name"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:hint="이메일을 입력해주세요"
 
-    <EditText
-        android:id="@+id/register_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="이메일"
-        app:layout_constraintBottom_toTopOf="@id/register_pw"
-        app:layout_constraintLeft_toRightOf="parent"
-        app:layout_constraintRight_toLeftOf="parent"
-        android:background="@drawable/textfield"
-        android:layout_marginBottom="20dp"
-        android:padding="10dp" />
+            android:background="@drawable/textfield"
+            android:padding="10dp"
+            android:textSize="10dp"
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/register_pw2"
-        app:layout_constraintRight_toLeftOf="parent"
-        app:layout_constraintLeft_toRightOf="parent"
-        android:hint="비밀번호"
-        android:background="@drawable/textfield"
-        android:padding="10dp"
-        android:layout_marginBottom="20dp"
-        android:id="@+id/register_pw"/>
+            />
+    </LinearLayout>
 
-    <EditText
+
+
+    <LinearLayout
+        android:layout_marginTop="21dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/register_name_layout"
         app:layout_constraintLeft_toRightOf="parent"
         app:layout_constraintRight_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="parent"
-        android:hint="비밀번호 확인"
-        android:background="@drawable/textfield"
-        android:padding="10dp"
-        android:layout_marginBottom="20dp"
-        android:id="@+id/register_pw2"/>
+        android:gravity="center"
+        android:orientation="vertical"
+        android:id="@+id/register_id_layout"
+        >
+        <TextView
+            android:layout_marginBottom="4dp"
+            android:layout_width="match_parent"
+            android:paddingLeft="48dp"
+            app:layout_constraintTop_toBottomOf="@id/ma"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="parent"
+            android:layout_height="wrap_content"
+            android:text="이메일"
+            />
+        <EditText
+            android:id="@+id/register_id"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:hint="이메일을 입력해주세요"
+
+            android:background="@drawable/textfield"
+            android:padding="10dp"
+            android:textSize="10dp"
+
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="21dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/register_id_layout"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:id="@+id/register_pw_layout"
+        >
+        <TextView
+            android:layout_marginBottom="4dp"
+            android:layout_width="match_parent"
+            android:paddingLeft="48dp"
+            app:layout_constraintTop_toBottomOf="@id/ma"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="parent"
+            android:layout_height="wrap_content"
+            android:text="비밀번호"
+            />
+        <EditText
+            android:id="@+id/register_pw"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:hint="비밀번호를 입력해주세요"
+
+            android:background="@drawable/textfield"
+            android:padding="10dp"
+            android:textSize="10dp"
+
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="21dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/register_pw_layout"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:id="@+id/register_pw2_layout"
+        >
+        <TextView
+            android:layout_marginBottom="4dp"
+            android:layout_width="match_parent"
+            android:paddingLeft="48dp"
+            app:layout_constraintTop_toBottomOf="@id/ma"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="parent"
+            android:layout_height="wrap_content"
+            android:text="비밀번호 확인"
+            />
+        <EditText
+            android:id="@+id/register_pw2"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:hint="비밀번호를 다시 입력해주세요"
+
+            android:background="@drawable/textfield"
+            android:padding="10dp"
+            android:textSize="10dp"
+
+            />
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="292dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/register_pw2"
+        android:layout_marginTop="21dp"
+        app:layout_constraintTop_toBottomOf="@+id/register_pw2_layout"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
         android:text="생일 입력"
         android:id="@+id/register_date"/>
 
     <Button
         android:id="@+id/login_RegisterBtn"
-        android:layout_width="match_parent"
+        android:layout_width="292dp"
         android:layout_height="wrap_content"
         android:text="회원가입"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="21dp"
         android:background="@drawable/button"
         android:textColor="#FFFFFF"
         app:layout_constraintLeft_toRightOf="parent"
