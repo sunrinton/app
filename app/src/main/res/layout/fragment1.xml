@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="20dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/f1_logo"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        app:layout_constraintTop_toBottomOf="@id/f1_logo"
+        android:drawableRight="@drawable/ic_search_24px"
+        android:background="@drawable/search_field"
+        android:id="@+id/f1_search"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/f1_search"
+        android:textSize="15sp"
+        android:text="오늘의 단어!"
+        android:textColor="#FE8700"
+        android:id="@+id/f1_label_today"
+        android:layout_marginVertical="20dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3px"
+        app:layout_constraintTop_toBottomOf="@id/f1_label_today"
+        android:id="@+id/f1_label_hr1"
+        android:layout_marginVertical="10dp"
+        android:background="#D8D8D8"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/f1_label_hr1"
+        android:textSize="20sp"
+        android:text="최촤촤촤"
+        android:textColor="#000000"
+        android:id="@+id/f1_Word"
+        android:layout_marginVertical="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/f1_Word"
+        android:textSize="14sp"
+        android:text=": 최애는 최애 차은우는 차은우"
+        android:textColor="#000000"
+        android:id="@+id/f1_WordMean"
+        android:layout_marginVertical="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/f1_WordMean"
+        android:textSize="12sp"
+        android:text="차은우가 객관적으로 봐도 너무 잘생겨서 최애와는 별개로 차은우는 항상 좋아한다는 뜻"
+        android:textColor="#000000"
+        android:id="@+id/f1_WordDetail"
+        android:layout_marginVertical="5dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3px"
+        app:layout_constraintTop_toBottomOf="@id/f1_WordDetail"
+        android:id="@+id/f1_label_hr2"
+        android:layout_marginVertical="10dp"
+        android:background="#D8D8D8"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        app:cardBackgroundColor="#FEA900"
+        android:id="@+id/f1_RandomQuizBtn"
+        app:contentPadding="20dp"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintTop_toBottomOf="@id/f1_label_hr2">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:text="랜덤 신조어 퀴즈"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:text="무작위로 나오는 신조어 퀴즈들을 풀고\n
+나의 신조어 레벨을 알아보세요!"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        app:cardBackgroundColor="#FEA900"
+        android:id="@+id/f1_MyQuizBtn"
+        app:contentPadding="20dp"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintTop_toBottomOf="@id/f1_RandomQuizBtn">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:text="OO님을 위한 퀴즈"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:text="OO님이 검색하셨던 단어들 위주로 만들어진\n
+나만의 맞춤형 퀴즈를 풀어보세요!"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        app:cardBackgroundColor="#FEA900"
+        android:id="@+id/f1_RepeatWord"
+        app:contentPadding="20dp"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintTop_toBottomOf="@id/f1_MyQuizBtn">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:text="복습퀴즈"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:text="OO님이 마지막으로 푸셨던 퀴즈들의\n
+답을 보며 복습해보세요!"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

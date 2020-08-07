@@ -3,13 +3,17 @@ package com.example.sunrinton;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import com.example.sunrinton.Date.UserDate;
 import com.example.sunrinton.Interface.CustomRetrofit;
 import com.example.sunrinton.Interface.CustomRetrofitService;
+import com.example.sunrinton.Util.User;
+import com.google.gson.Gson;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,7 +24,6 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,8 +32,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SharedPreferences sf = getSharedPreferences(getString(R.string.myaccount_sf), MODE_PRIVATE);
+        String s;
+        if((s = sf.getString("date", "none")).equals("none") == false) {
+
+            Gson gson = new Gson();
+            User user = gson.fromJson(s, User.class);
+            UserDate.user = user;
+            // 메인화면으로 넘어가기
+            return;
+        }
+
         Button loginBtn = findViewById(R.id.login_loginBtn);
-        Button regBtn = findViewById(R.id.login_RegisterBtn);
+        TextView regBtn = findViewById(R.id.login_RegisterBtn);
         EditText idField = findViewById(R.id.login_id);
         EditText pwField = findViewById(R.id.login_pw);
 
@@ -42,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             CustomRetrofitService RetrofitAPI = CustomRetrofit.getInstance(this).getCustomService();
-            Call<ResponseBody> CallResponse = RetrofitAPI.UserLogin(id,pw);
+            Call<ResponseBody> CallResponse = RetrofitAPI.UserLogin("close", id,pw);
 
             CallResponse.enqueue(new Callback<ResponseBody>() {
                 @Override
@@ -51,10 +65,19 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         respone = response.body().string();
                         JSONObject json = new JSONObject(respone);
-
+                        System.out.println("메세지 : " + respone);
                         System.out.println("코드 : " + json.getInt("code"));
                         if(json.getInt("code") == 200) {
                             System.out.println("로그인 성공");
+
+//                            Gson gson = new Gson();
+//                            User user = gson.fromJson(userjson, User.class);
+//                            UserDate.user = user;
+//                            SharedPreferences sf = getSharedPreferences(getString(R.string.myaccount_sf), MODE_PRIVATE);
+//                            SharedPreferences.Editor edit = sf.edit();
+//                            edit.putString("date", userjson);
+//                            edit.commit();
+
                         }
 
                     } catch (IOException | JSONException e) {
@@ -75,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, RegisterActivity.class);
             startActivity(intent);
         });
+
+        startActivity(new Intent(this, MainFormActivity.class));
 
 
     }

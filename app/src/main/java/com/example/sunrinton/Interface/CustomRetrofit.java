@@ -24,8 +24,12 @@ public class CustomRetrofit {
     }
 
     private CustomRetrofit(Context context) {
+        OkHttpClient client = new OkHttpClient.Builder()
+                .retryOnConnectionFailure(true)
+                .build();
         Retrofit register = new Retrofit.Builder()
                 .baseUrl(context.getString(R.string.retrofit_uri))
+                .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

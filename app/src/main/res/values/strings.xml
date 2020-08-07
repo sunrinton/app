@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">Sunrinton</string>
+    <string name="app_name">이음</string>
     <string name="retrofit_uri">http://3.34.249.212:3000/</string>
+    <string name="myaccount_sf">MYAccount</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

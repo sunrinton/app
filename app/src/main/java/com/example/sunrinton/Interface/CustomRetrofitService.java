@@ -12,6 +12,7 @@ public interface CustomRetrofitService {
 
     @POST("auth")
     Call<ResponseBody> UserLogin(
+            @Header("Connection") String header,
             @Query("id") String id,
             @Query("pw") String pw
     );
