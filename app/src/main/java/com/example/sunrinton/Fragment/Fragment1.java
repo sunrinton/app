@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import com.example.sunrinton.Date.UserDate;
 import com.example.sunrinton.Interface.CustomRetrofit;
 import com.example.sunrinton.Interface.CustomRetrofitService;
 import com.example.sunrinton.MainActivity;
@@ -45,6 +46,11 @@ public class Fragment1 extends Fragment implements View.OnClickListener {
         TextView tv1 = viewGroup.findViewById(R.id.f1_Word);
         TextView tv2 = viewGroup.findViewById(R.id.f1_WordMean);
         TextView tv3 = viewGroup.findViewById(R.id.f1_WordDetail);
+
+        TextView tv4 = viewGroup.findViewById(R.id.f1_foryou);
+        tv4.setText(UserDate.user.getName() + "님을 위한 퀴즈");
+        TextView tv5 = viewGroup.findViewById(R.id.f1_foryou2);
+        tv5.setText(UserDate.user.getName() + "님이 검색하셨던 단어들 위주로 만들어진\n나만의 맞춤형 퀴즈를 풀어보세요!");
 
         TextView label = viewGroup.findViewById(R.id.f1_label_today);
 

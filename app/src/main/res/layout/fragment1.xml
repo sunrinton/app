@@ -137,6 +137,7 @@
                 android:textSize="25sp"
                 android:textColor="#FFFFFF"
                 android:gravity="center"
+                android:id="@+id/f1_foryou"
                 android:fontFamily="@font/nanumeb"
                 android:text="OO님을 위한 퀴즈"/>
             <TextView
@@ -144,6 +145,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="10sp"
                 android:textColor="#FFFFFF"
+                android:id="@+id/f1_foryou2"
                 android:gravity="center"
                 android:fontFamily="@font/nanumr"
                 android:text="OO님이 검색하셨던 단어들 위주로 만들어진\n
