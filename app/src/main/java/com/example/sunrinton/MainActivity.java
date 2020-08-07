@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.sunrinton.Date.UserDate;
 import com.example.sunrinton.Interface.CustomRetrofit;
 import com.example.sunrinton.Interface.CustomRetrofitService;
+import com.example.sunrinton.Util.Quiz;
 import com.example.sunrinton.Util.User;
 import com.google.gson.Gson;
 
@@ -19,6 +20,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -27,6 +30,9 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static List<Quiz> quizlist = new ArrayList<>();
+    public static int quizIndex = 0;
+    public static int CorrectCount = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
