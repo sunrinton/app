@@ -35,11 +35,11 @@ public class QuizActivity extends AppCompatActivity {
         Drawable correct = getDrawable( R.drawable.ic_correct );
         int h = correct.getIntrinsicHeight();
         int w = correct.getIntrinsicWidth();
-        correct.setBounds(0,0,w,h);
+        correct.setBounds(-20,0,w,h);
         Drawable incorrect = getDrawable( R.drawable.ic_nocorrect );
         h = incorrect.getIntrinsicHeight();
         w = incorrect.getIntrinsicWidth();
-        incorrect.setBounds(0,0,w,h);
+        incorrect.setBounds(-20,0,w,h);
 
         if(new Random().nextInt(2) == 1) {
             quiz1Btn.setText(MainActivity.quizlist.get(MainActivity.quizIndex).getMean());
@@ -49,7 +49,7 @@ public class QuizActivity extends AppCompatActivity {
             }
             quiz1Btn.setOnClickListener((view) -> {
                 MainActivity.CorrectCount++;
-                quiz1Btn.setBackgroundColor(getColor(R.color.blue));
+                quiz1Btn.setBackgroundResource(R.drawable.correctbutton);
                 quiz1Btn.setCompoundDrawables(null, null, correct, null);
                 quiz1Btn.setTextColor(getColor(R.color.white));
                 quiz1Btn.setClickable(false);
@@ -58,7 +58,7 @@ public class QuizActivity extends AppCompatActivity {
 
             });
             quiz2Btn.setOnClickListener((view) -> {
-                quiz2Btn.setBackgroundColor(getColor(R.color.red));
+                quiz2Btn.setBackgroundResource(R.drawable.incorrectbutton);
                 quiz2Btn.setTextColor(getColor(R.color.white));
                 quiz2Btn.setCompoundDrawables(null, null, incorrect, null);
                 quiz1Btn.setClickable(false);
@@ -73,7 +73,7 @@ public class QuizActivity extends AppCompatActivity {
             }
             quiz2Btn.setOnClickListener((view) -> {
                 MainActivity.CorrectCount++;
-                quiz2Btn.setBackgroundColor(getColor(R.color.blue));
+                quiz2Btn.setBackgroundResource(R.drawable.correctbutton);
                 quiz2Btn.setTextColor(getColor(R.color.white));
                 quiz2Btn.setCompoundDrawables(null, null, correct, null);
                 quiz1Btn.setClickable(false);
@@ -81,7 +81,7 @@ public class QuizActivity extends AppCompatActivity {
                 nextPage();
             });
             quiz1Btn.setOnClickListener((view) -> {
-                quiz1Btn.setBackgroundColor(getColor(R.color.red));
+                quiz1Btn.setBackgroundResource(R.drawable.incorrectbutton);
                 quiz1Btn.setTextColor(getColor(R.color.white));
                 quiz1Btn.setCompoundDrawables(null, null, incorrect, null);
                 quiz1Btn.setClickable(false);
