@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
             User user = gson.fromJson(s, User.class);
             UserDate.user = user;
             // 메인화면으로 넘어가기
+            System.out.println(user.getName() + "님으로 자동 로그인됩니다.");
+            nextActivity();
             return;
         }
 
@@ -56,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             CustomRetrofitService RetrofitAPI = CustomRetrofit.getInstance(this).getCustomService();
-            Call<ResponseBody> CallResponse = RetrofitAPI.UserLogin("close", id,pw);
+            Call<ResponseBody> CallResponse = RetrofitAPI.UserLogin(id,pw);
 
             CallResponse.enqueue(new Callback<ResponseBody>() {
                 @Override
@@ -70,14 +72,16 @@ public class MainActivity extends AppCompatActivity {
                         if(json.getInt("code") == 200) {
                             System.out.println("로그인 성공");
 
-//                            Gson gson = new Gson();
-//                            User user = gson.fromJson(userjson, User.class);
-//                            UserDate.user = user;
-//                            SharedPreferences sf = getSharedPreferences(getString(R.string.myaccount_sf), MODE_PRIVATE);
-//                            SharedPreferences.Editor edit = sf.edit();
-//                            edit.putString("date", userjson);
-//                            edit.commit();
+                            String userjson = json.getJSONObject("data").toString();
 
+                            Gson gson = new Gson();
+                            User user = gson.fromJson(userjson, User.class);
+                            UserDate.user = user;
+                            SharedPreferences sf = getSharedPreferences(getString(R.string.myaccount_sf), MODE_PRIVATE);
+                            SharedPreferences.Editor edit = sf.edit();
+                            edit.putString("date", userjson);
+                            edit.commit();
+                            nextActivity();
                         }
 
                     } catch (IOException | JSONException e) {
@@ -99,9 +103,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        startActivity(new Intent(this, MainFormActivity.class));
 
+    }
 
+    private void nextActivity() {
+        Intent intent = new Intent(this, MainFormActivity.class);
+        startActivity(intent);
     }
 
 }
