@@ -50,7 +50,7 @@ android:padding="10dp">
 
             android:background="@drawable/textfield"
             android:padding="10dp"
-            android:textSize="10dp"
+            android:textSize="15dp"
 
             />
     </LinearLayout>
@@ -82,11 +82,11 @@ android:padding="10dp">
             android:id="@+id/register_id"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:hint="이메일을 입력해주세요"
+            android:hint="이름을 입력해주세요"
 
             android:background="@drawable/textfield"
             android:padding="10dp"
-            android:textSize="10dp"
+            android:textSize="15dp"
 
             />
     </LinearLayout>
@@ -117,10 +117,10 @@ android:padding="10dp">
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:hint="비밀번호를 입력해주세요"
-
+            android:inputType="textPassword"
             android:background="@drawable/textfield"
             android:padding="10dp"
-            android:textSize="10dp"
+            android:textSize="15dp"
 
             />
 
@@ -152,10 +152,10 @@ android:padding="10dp">
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:hint="비밀번호를 다시 입력해주세요"
-
+            android:inputType="textPassword"
             android:background="@drawable/textfield"
             android:padding="10dp"
-            android:textSize="10dp"
+            android:textSize="15dp"
 
             />
 
