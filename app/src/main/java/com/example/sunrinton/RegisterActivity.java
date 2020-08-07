@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.sunrinton.Interface.CustomRetrofit;
 import com.example.sunrinton.Interface.CustomRetrofitService;
@@ -56,16 +57,20 @@ public class RegisterActivity extends AppCompatActivity {
 
             String id, pw, pw2, name;
             if((id = idField.getText().toString().trim()).isEmpty() || (pw = pwField.getText().toString()).trim().isEmpty() || (pw2 = pw2Field.getText().toString()).trim().isEmpty() || (name = nameField.getText().toString()).trim().isEmpty()) {
+
+                Toast.makeText(this, "모두 입력해주세요", Toast.LENGTH_SHORT).show();
                 // 에러 메세지 띄워야함
                 return;
             }
 
             if(pw.equals(pw2) == false) {
+                Toast.makeText(this, "비밀번호가 일치하지 않습니다", Toast.LENGTH_SHORT).show();
                 // 비밀번호 동일하지 않음
                 return;
             }
 
             if(year == 0 || month == 0 || day == 0) {
+                Toast.makeText(this, "생일을 기입해주세요", Toast.LENGTH_SHORT).show();
                 // 날짜를 설정하시오
                 return;
             }
@@ -93,6 +98,7 @@ public class RegisterActivity extends AppCompatActivity {
                         }
 
                     } catch (IOException | JSONException e) {
+                        Toast.makeText(getBaseContext(), "가입 실패", Toast.LENGTH_SHORT).show();
                         e.printStackTrace();
                     }
                 }

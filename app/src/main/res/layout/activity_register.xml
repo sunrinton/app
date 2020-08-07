@@ -17,6 +17,7 @@ android:padding="10dp">
         android:layout_marginTop="100dp"
         app:layout_constraintLeft_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/nanumeb"
         android:id="@+id/ma"
 
         android:text="회원가입"/>
@@ -31,6 +32,7 @@ android:padding="10dp">
         android:gravity="center"
         android:orientation="vertical"
         android:id="@+id/register_name_layout"
+        android:fontFamily="@font/nanumr"
         >
         <TextView
             android:layout_marginBottom="4dp"
@@ -41,6 +43,7 @@ android:padding="10dp">
             app:layout_constraintRight_toLeftOf="parent"
             android:layout_height="wrap_content"
             android:text="이름"
+            android:fontFamily="@font/nanumr"
             />
         <EditText
             android:id="@+id/register_name"
@@ -50,7 +53,12 @@ android:padding="10dp">
 
             android:background="@drawable/textfield"
             android:padding="10dp"
+
             android:textSize="15dp"
+
+
+            android:fontFamily="@font/nanumr"
+
 
             />
     </LinearLayout>
@@ -67,6 +75,7 @@ android:padding="10dp">
         android:gravity="center"
         android:orientation="vertical"
         android:id="@+id/register_id_layout"
+        android:fontFamily="@font/nanumr"
         >
         <TextView
             android:layout_marginBottom="4dp"
@@ -77,6 +86,7 @@ android:padding="10dp">
             app:layout_constraintRight_toLeftOf="parent"
             android:layout_height="wrap_content"
             android:text="이메일"
+            android:fontFamily="@font/nanumr"
             />
         <EditText
             android:id="@+id/register_id"
@@ -88,6 +98,7 @@ android:padding="10dp">
             android:padding="10dp"
             android:textSize="15dp"
 
+            android:fontFamily="@font/nanumr"
             />
     </LinearLayout>
 
@@ -101,6 +112,7 @@ android:padding="10dp">
         android:gravity="center"
         android:orientation="vertical"
         android:id="@+id/register_pw_layout"
+        android:fontFamily="@font/nanumr"
         >
         <TextView
             android:layout_marginBottom="4dp"
@@ -111,6 +123,7 @@ android:padding="10dp">
             app:layout_constraintRight_toLeftOf="parent"
             android:layout_height="wrap_content"
             android:text="비밀번호"
+            android:fontFamily="@font/nanumr"
             />
         <EditText
             android:id="@+id/register_pw"
@@ -121,6 +134,10 @@ android:padding="10dp">
             android:background="@drawable/textfield"
             android:padding="10dp"
             android:textSize="15dp"
+
+
+            android:fontFamily="@font/nanumr"
+
 
             />
 
@@ -136,6 +153,7 @@ android:padding="10dp">
         android:gravity="center"
         android:orientation="vertical"
         android:id="@+id/register_pw2_layout"
+        android:fontFamily="@font/nanumr"
         >
         <TextView
             android:layout_marginBottom="4dp"
@@ -146,6 +164,7 @@ android:padding="10dp">
             app:layout_constraintRight_toLeftOf="parent"
             android:layout_height="wrap_content"
             android:text="비밀번호 확인"
+            android:fontFamily="@font/nanumr"
             />
         <EditText
             android:id="@+id/register_pw2"
@@ -155,7 +174,11 @@ android:padding="10dp">
             android:inputType="textPassword"
             android:background="@drawable/textfield"
             android:padding="10dp"
+
             android:textSize="15dp"
+
+            android:fontFamily="@font/nanumr"
+
 
             />
 

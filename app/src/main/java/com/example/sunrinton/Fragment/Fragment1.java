@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -71,6 +72,7 @@ public class Fragment1 extends Fragment implements View.OnClickListener {
                                 tv3.setText(jsonObject.getJSONObject("data").getString("sentence"));
                                 label.setText(et.getText().toString() + " 검색 결과");
                             } catch (JSONException | IOException e) {
+                                Toast.makeText(viewGroup.getContext(), "검색 결과가 없습니다", Toast.LENGTH_SHORT).show();
                                 e.printStackTrace();
                             }
 

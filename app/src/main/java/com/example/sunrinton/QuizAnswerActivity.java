@@ -1,6 +1,7 @@
 package com.example.sunrinton;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.widget.Button;
@@ -30,6 +31,13 @@ public class QuizAnswerActivity extends AppCompatActivity {
                         .setTitle("결과")
                         .setMessage("맞힌 문제 : " + MainActivity.CorrectCount  + " / " + MainActivity.quizlist.size())
                         .setPositiveButton("확인", (dialogInterface, i) -> {
+
+                            SharedPreferences sf = getSharedPreferences("Correct", MODE_PRIVATE);
+                            SharedPreferences.Editor edit = sf.edit();
+                            edit.putInt("correct", MainActivity.CorrectCount);
+                            edit.commit();
+
+
                             startActivity(new Intent(this, MainFormActivity.class));
                             finish();
                         });

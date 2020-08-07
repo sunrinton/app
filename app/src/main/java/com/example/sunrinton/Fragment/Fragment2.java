@@ -28,6 +28,14 @@ public class Fragment2 extends Fragment {
 
 
         Button logout = viewGroup.findViewById(R.id.logoutBtn);
+        TextView tv2 = viewGroup.findViewById(R.id.f2_correctcount);
+        SharedPreferences sf2 = viewGroup.getContext().getSharedPreferences("Correct", viewGroup.getContext().MODE_PRIVATE);
+        int count = sf2.getInt("correct",-1);
+        if(count == -1)
+            tv2.setText("");
+        else
+            tv2.setText("최근 맞힌 개수 : " + count);
+
 
         logout.setOnClickListener(view -> {
 
@@ -36,6 +44,7 @@ public class Fragment2 extends Fragment {
             edit.clear();
             edit.commit();
             startActivity(new Intent(viewGroup.getContext(), MainActivity.class));
+
 
         });
         return viewGroup;

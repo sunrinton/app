@@ -21,6 +21,7 @@
         app:layout_constraintTop_toBottomOf="@+id/logo"
         android:layout_marginTop="100dp"
         android:textSize="33dp"
+        android:fontFamily="@font/nanumeb"
         android:id="@+id/quiz"
         ></TextView>
     <TextView
@@ -31,12 +32,14 @@
         android:textColor="#000000"
         android:gravity="center"
         android:text="'어쩌구'입니다!"
+        android:fontFamily="@font/nanumb"
         android:id="@+id/ment"
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="adsasd\nasdsad\nasdasd"
+        android:fontFamily="@font/nanumr"
         android:textColor="#000000"
         android:gravity="center"
         android:id="@+id/mean"
@@ -61,6 +64,7 @@
             android:layout_width="292dp"
             android:layout_height="40dp"
             android:id="@+id/nextQuiz"
+            android:fontFamily="@font/nanumr"
             android:text="다음문제로"
             />
     </LinearLayout>
