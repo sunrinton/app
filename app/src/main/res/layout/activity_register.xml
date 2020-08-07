@@ -49,7 +49,7 @@ android:padding="10dp">
             android:id="@+id/register_name"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:hint="이메일을 입력해주세요"
+            android:hint="이름을 입력해주세요"
 
             android:background="@drawable/textfield"
             android:padding="10dp"
@@ -92,7 +92,7 @@ android:padding="10dp">
             android:id="@+id/register_id"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:hint="이름을 입력해주세요"
+            android:hint="이메일을 입력해주세요"
 
             android:background="@drawable/textfield"
             android:padding="10dp"
