@@ -85,14 +85,14 @@ android:padding="10dp">
             app:layout_constraintLeft_toRightOf="parent"
             app:layout_constraintRight_toLeftOf="parent"
             android:layout_height="wrap_content"
-            android:text="이메일"
+            android:text="아이디"
             android:fontFamily="@font/nanumr"
             />
         <EditText
             android:id="@+id/register_id"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:hint="이메일을 입력해주세요"
+            android:hint="아이디를 입력해주세요"
 
             android:background="@drawable/textfield"
             android:padding="10dp"
