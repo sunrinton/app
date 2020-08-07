@@ -2,10 +2,9 @@ package com.example.sunrinton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 
 import com.example.sunrinton.Interface.CustomRetrofit;
@@ -15,34 +14,58 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
-public class MainActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_register);
 
-        Button loginBtn = findViewById(R.id.login_loginBtn);
+
         Button regBtn = findViewById(R.id.login_RegisterBtn);
-        EditText idField = findViewById(R.id.login_id);
-        EditText pwField = findViewById(R.id.login_pw);
+        EditText nameField = findViewById(R.id.register_name);
+        EditText idField = findViewById(R.id.register_id);
+        EditText pwField = findViewById(R.id.register_pw);
+        EditText pw2Field = findViewById(R.id.register_pw2);
+        DatePicker date = findViewById(R.id.register_date);
 
-        loginBtn.setOnClickListener((view) -> {
-            String id, pw;
-            if((id = idField.getText().toString().trim()).isEmpty() || (pw = pwField.getText().toString()).trim().isEmpty()) {
+        regBtn.setOnClickListener((view) -> {
+
+            String id, pw, pw2, name;
+            int year=0, month=0, day=0;
+            if((id = idField.getText().toString().trim()).isEmpty() || (pw = pwField.getText().toString()).trim().isEmpty() || (pw2 = pw2Field.getText().toString()).trim().isEmpty() || (name = nameField.getText().toString()).trim().isEmpty()) {
                 // 에러 메세지 띄워야함
                 return;
             }
 
+            if(pw.equals(pw2) == false) {
+                // 비밀번호 동일하지 않음
+                return;
+            }
+
+            year = date.getYear();
+            month = date.getMonth()+1;
+            day = date.getDayOfMonth();
+            if(year == 0 || month == 0 || day == 0) {
+                // 날짜를 설정하시오
+                return;
+            }
+
+            Calendar cal = Calendar.getInstance();
+            cal.set(Calendar.DAY_OF_MONTH, day);
+            cal.set(Calendar.MONTH, month);
+            cal.set(Calendar.YEAR, year);
+
             CustomRetrofitService RetrofitAPI = CustomRetrofit.getInstance(this).getCustomService();
-            Call<ResponseBody> CallResponse = RetrofitAPI.UserLogin(id,pw);
+            Call<ResponseBody> CallResponse = RetrofitAPI.UserRegister(name, id, pw, cal.getTimeInMillis());
 
             CallResponse.enqueue(new Callback<ResponseBody>() {
                 @Override
@@ -51,10 +74,10 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         respone = response.body().string();
                         JSONObject json = new JSONObject(respone);
-
                         System.out.println("코드 : " + json.getInt("code"));
                         if(json.getInt("code") == 200) {
-                            System.out.println("로그인 성공");
+                            System.out.println("가입 성공");
+                            finish();
                         }
 
                     } catch (IOException | JSONException e) {
@@ -70,13 +93,5 @@ public class MainActivity extends AppCompatActivity {
 
 
         });
-
-        regBtn.setOnClickListener((view) -> {
-            Intent intent = new Intent(this, RegisterActivity.class);
-            startActivity(intent);
-        });
-
-
     }
-
 }

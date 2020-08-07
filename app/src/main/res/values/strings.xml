@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Sunrinton</string>
+    <string name="retrofit_uri">http://3.34.249.212:3000/</string>
 </resources>
