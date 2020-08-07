@@ -29,11 +29,18 @@ public interface CustomRetrofitService {
             @Query("birth") long date
     );
 
+    @GET("search")
+    Call<ResponseBody> getOneWord(
+            @Query("text") String text
+    );
+
     @GET("getOne")
     Call<ResponseBody> getOneWord();
 
     @GET("quiz")
     Call<ResponseBody> getWords();
+
+
 
 
 }

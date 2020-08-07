@@ -85,6 +85,7 @@ public class RegisterActivity extends AppCompatActivity {
                     try {
                         respone = response.body().string();
                         JSONObject json = new JSONObject(respone);
+                        System.out.println(respone);
                         System.out.println("코드 : " + json.getInt("code"));
                         if(json.getInt("code") == 200) {
                             System.out.println("가입 성공");
