@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sunrinton.Date.UserDate;
 import com.example.sunrinton.Interface.CustomRetrofit;
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         loginBtn.setOnClickListener((view) -> {
             String id, pw;
             if((id = idField.getText().toString().trim()).isEmpty() || (pw = pwField.getText().toString()).trim().isEmpty()) {
+                Toast.makeText(this, "모두 입력해주세요", Toast.LENGTH_SHORT).show();
                 // 에러 메세지 띄워야함
                 return;
             }
@@ -88,9 +90,13 @@ public class MainActivity extends AppCompatActivity {
                             edit.putString("date", userjson);
                             edit.commit();
                             nextActivity();
+                        } else {
+
+                            Toast.makeText(getBaseContext(), "계정 정봍가 일치하지 않습니다", Toast.LENGTH_SHORT).show();
                         }
 
                     } catch (IOException | JSONException e) {
+                        Toast.makeText(getBaseContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
                         e.printStackTrace();
                     }
                 }
@@ -115,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
     private void nextActivity() {
         Intent intent = new Intent(this, MainFormActivity.class);
         startActivity(intent);
+        finish();
     }
 
 }
